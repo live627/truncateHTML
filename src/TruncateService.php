@@ -44,10 +44,13 @@ class TruncateService implements TruncateInterface
     /**
      * @inheritDoc
      */
-    public function truncate($text, $length = 100, $ending = '...', $exact = false, $considerHtml = true)
-    {
-        $open_tags = array();
-        $truncate  = '';
+    public function truncate(
+        $text,
+        $length = 100,
+        $ending = '…',
+        $exact = false,
+        $considerHtml = true
+    ) {
         if ($considerHtml) {
             // if the plain text is shorter than the maximum length, return the whole text
             if (mb_strlen(preg_replace('/<.*?>/', '', $text), $this->encoding) <= $length) {

@@ -30,5 +30,12 @@ interface TruncateInterface
      *
      * @return string The truncated string
      */
-    public function truncate($text, $length = 100, $ending = '...', $exact = false, $considerHtml = true);
+    public function truncate(
+        $text,
+        $length = 100,
+        $ending = '…',
+        $exact = false,
+        $considerHtml = true
+    );
+
 }
