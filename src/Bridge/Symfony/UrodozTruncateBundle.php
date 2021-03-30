@@ -22,14 +22,14 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class UrodozTruncateBundle extends Bundle
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function build(ContainerBuilder $container)
-    {
-        parent::build($container);
-        $extension = new UrodozTruncateExtension();
-        $extension->load(array(), $container);
-        $container->registerExtension($extension);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	public function build(ContainerBuilder $container)
+	{
+		parent::build($container);
+		$extension = new UrodozTruncateExtension();
+		$extension->load(array(), $container);
+		$container->registerExtension($extension);
+	}
 }

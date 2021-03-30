@@ -21,51 +21,51 @@ use Urodoz\Truncate\TruncateInterface;
  */
 class TruncateExtension extends \Twig_Extension
 {
-    /**
-     * @var TruncateInterface
-     */
-    private $truncateService;
+	/**
+	 * @var TruncateInterface
+	 */
+	private $truncateService;
 
-    /**
-     * Constructor
-     *
-     * @param TruncateInterface $truncateService
-     */
-    public function __construct(TruncateInterface $truncateService)
-    {
-        $this->truncateService = $truncateService;
-    }
+	/**
+	 * Constructor
+	 *
+	 * @param TruncateInterface $truncateService
+	 */
+	public function __construct(TruncateInterface $truncateService)
+	{
+		$this->truncateService = $truncateService;
+	}
 
-    /**
-     * Returns the Twig functions of this extension.
-     *
-     * @return \Twig_SimpleFilter[]
-     */
-    public function getFunctions()
-    {
-        return array(
-            new \Twig_SimpleFunction('truncateHTML', array($this, 'truncateHTML')),
-        );
-    }
+	/**
+	 * Returns the Twig functions of this extension.
+	 *
+	 * @return \Twig_SimpleFilter[]
+	 */
+	public function getFunctions()
+	{
+		return array(
+			new \Twig_SimpleFunction('truncateHTML', array($this, 'truncateHTML')),
+		);
+	}
 
-    /**
-     * Truncate HTML filter.
-     *
-     * @param string $string
-     * @param int    $length
-     *
-     * @return string
-     */
-    public function truncateHTML($string, $length = 100)
-    {
-        return $this->truncateService->truncate($string, $length);
-    }
+	/**
+	 * Truncate HTML filter.
+	 *
+	 * @param string $string
+	 * @param int    $length
+	 *
+	 * @return string
+	 */
+	public function truncateHTML($string, $length = 100)
+	{
+		return $this->truncateService->truncate($string, $length);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    public function getName()
-    {
-        return 'urodoztruncatehtml_extension';
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	public function getName()
+	{
+		return 'urodoztruncatehtml_extension';
+	}
 }

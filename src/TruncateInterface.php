@@ -19,23 +19,14 @@ namespace Urodoz\Truncate;
  */
 interface TruncateInterface
 {
-    /**
-     * Truncates the HTML keeping consistency on open/closing HTML tags
-     *
-     * @param string $text
-     * @param int    $length
-     * @param string $ending
-     * @param bool   $exact
-     * @param bool   $considerHtml
-     *
-     * @return string The truncated string
-     */
-    public function truncate(
-        $text,
-        $length = 100,
-        $ending = '…',
-        $exact = false,
-        $considerHtml = true
-    );
-
+	/**
+	 * Truncates the HTML keeping consistency on open/closing HTML tags
+	 *
+	 * @param string $text   String to truncate
+	 * @param int    $length Length of returned string, including ellipsis
+	 * @param string $append Will be appended to the trimmed string
+	 *
+	 * @return string The truncated string
+	 */
+	public function truncate($text, $length = 100, $append = '…');
 }

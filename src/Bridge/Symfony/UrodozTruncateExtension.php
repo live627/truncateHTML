@@ -24,21 +24,21 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class UrodozTruncateExtension extends Extension
 {
-    /**
-     * {@inheritDoc}
-     *
-     * @param mixed[]          $configs
-     * @param ContainerBuilder $container
-     */
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $container->setDefinition('urodoz_truncate', new Definition('Urodoz\Truncate\TruncateService'));
-        $container->setDefinition(
-            'urodoz_truncate.twig.truncateHTML',
-            new Definition(
-                'Urodoz\Truncate\Bridge\Twig\TruncateExtension',
-                array(new Reference('urodoz_truncate'))
-            )
-        )->addTag('twig.extension');
-    }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param mixed[]          $configs
+	 * @param ContainerBuilder $container
+	 */
+	public function load(array $configs, ContainerBuilder $container)
+	{
+		$container->setDefinition('urodoz_truncate', new Definition('Urodoz\Truncate\TruncateService'));
+		$container->setDefinition(
+			'urodoz_truncate.twig.truncateHTML',
+			new Definition(
+				'Urodoz\Truncate\Bridge\Twig\TruncateExtension',
+				array(new Reference('urodoz_truncate'))
+			)
+		)->addTag('twig.extension');
+	}
 }
